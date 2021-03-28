@@ -6,6 +6,7 @@ import Home from "@/views/Home";
 import Cursos from "@/views/Cursos";
 import CourseDetail from "@/views/CourseDetail";
 import DetailCourse from "@/views/DetailCourse";
+import NotFound from "@/views/NotFound";
 
 vue.use(Router)
 
@@ -25,6 +26,16 @@ export default new Router({
       component: Cursos
     }
     ,
+
+    {
+      path: "/404",
+      name: "notfound",
+      component: NotFound
+    },  
+    { path: '*',
+     redirect: '/404'
+     },  
+    
 
     {
       path: "/curso/:id",

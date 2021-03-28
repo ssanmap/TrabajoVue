@@ -17,7 +17,10 @@
             <h2 class="mt-3">{{name}}</h2>
             <p>{{dificult}}</p>
         <img v-bind:src="img" width="200" />
+        <div class="row py-2">
             <p v-html="desc">{{desc}}</p>
+        </div>
+          
 
 
 <div>

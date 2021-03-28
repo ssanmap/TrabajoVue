@@ -28,7 +28,10 @@ export default new Router({
     {
       path: "/curso/:id",
       name: "course-detail",
-      component: CourseDetail
+      component: CourseDetail,
+      props:{
+        image:''
+      }
     }
   ]
 

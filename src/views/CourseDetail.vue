@@ -2,16 +2,30 @@
     <div>
 
         <div class="loading " v-if="isLoading" >
-      <bounce-loader :loading="isLoading" :color="'#FF0000'" :size="200" :atr="car" />
+      <bounce-loader :loading="isLoading" :color="'#FF0000'" :size="200"  />
       <p>loading ...</p>
     </div>
 
-    <div class="detalle">
+    <div class="detalle" v-else>
 <h1>Detalles del curso</h1>
 
 <!-- <p>{{asset}}</p> -->
 <h2>{{name}}</h2>
+<p>{{img}}</p>
+  <img v-bind:src="img" width="200" />
+  <br>
 
+  <ul>
+    <li v-bind:key="item.name" v-for="item in content">
+            {{item.name}} -- {{item.status}} 
+            <b-progress
+              variant="warning"
+              :max="dismissSecs"
+              :value="dismissCountDown"
+              height="4px"
+            ></b-progress>
+    </li>
+  </ul>
  <router-link
       to="/"
      
@@ -32,7 +46,8 @@ import api from '@/api'
        isLoading: true,
        name: '',
        desc: '',
-       img:''
+       img:'',
+       content:''
     }
   },
 
@@ -46,7 +61,11 @@ import api from '@/api'
 
   methods: {
     getCourse() {
-      const id = this.$route.params.id
+      const id = this.$route.params.id;
+      
+      const imagee = this.$route.params.img;
+      this.content = imagee.learning;
+      this.img =  imagee.cover;
 
         Promise.all([api.getAsset(id) ])
         .then(

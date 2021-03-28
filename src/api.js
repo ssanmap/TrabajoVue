@@ -15,9 +15,17 @@ function getAsset(id) {
 }
 
 
+function getCursos() {
+  return fetch(`${urlc}`)
+    .then(res => res.json())
+    .then(res => res)
+    .catch(error => console.log(error))
+}
+
 
 export default {
     getAssets,
-    getAsset
+    getAsset,
+    getCursos
   }
   

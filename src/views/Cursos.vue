@@ -1,19 +1,20 @@
 <template>
   <div>
     <h1>Cursos Disponibles</h1>
-    {{itemUrl}}
+
     <br>
-    {{assets}}
-    <div>
+    
+    <div class="d-flex justify-content-center flex-column flex-md-row  justify-content-md-around ">
       <b-card
-        title="lista.attributes.name"
-        img-src="https://picsum.photos/600/300/?image=25"
-        img-alt="Image"
+        :title="asset.attributes.name"
+        :img-src="asset.attributes.cover"
+        :img-alt="asset.attributes.name"
         img-top
         tag="article"
         style="max-width: 20rem;"
         class="mb-3"
-        
+         v-for="asset in assets"
+                  :key="asset.id"
       >
         <b-card-text>
       aa

@@ -20,8 +20,8 @@
             {{item.name}} -- {{item.status}} 
             <b-progress
               variant="warning"
-              :max="dismissSecs"
-              :value="dismissCountDown"
+              :max="item.videos.total"
+              :value="item.videos.progress"
               height="4px"
             ></b-progress>
     </li>

@@ -5,6 +5,7 @@ import Router from 'vue-router';
 import Home from "@/views/Home";
 import Cursos from "@/views/Cursos";
 import CourseDetail from "@/views/CourseDetail";
+import DetailCourse from "@/views/DetailCourse";
 
 vue.use(Router)
 
@@ -32,6 +33,15 @@ export default new Router({
       props:{
         image:''
       }
+    }
+
+    ,
+
+    {
+      path: "/cursosd/:id",
+      name: "detail-course",
+      component: DetailCourse,
+      
     }
   ]
 

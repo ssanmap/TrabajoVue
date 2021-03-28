@@ -7,6 +7,8 @@
     </div>
 
     <div class="detalle" v-else>
+
+      <Header :dato="variant" />
 <h1>Detalles del curso</h1>
 
 <!-- <p>{{asset}}</p> -->
@@ -31,13 +33,17 @@
      
     >Volver </router-link>
     </div>
+    <Footer></Footer>
     </div>
 </template>
 
 <script>
 
 import api from '@/api'
+import Header from '../components/Header.vue'
+import Footer from '../components/Footer'
     export default {
+  components: { Header }, Footer,
         name:'CourseDetail',
 
   data() {
@@ -47,7 +53,8 @@ import api from '@/api'
        name: '',
        desc: '',
        img:'',
-       content:''
+       content:'',
+       variant:'Estas en detalles de Curso'
     }
   },
 
@@ -74,6 +81,7 @@ import api from '@/api'
           this.name = asset.attributes.name
           
         })
+         .catch(error => console.log(error))
         .finally(() => (this.isLoading = false))
     }
   }

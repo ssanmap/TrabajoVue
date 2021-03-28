@@ -1,5 +1,14 @@
 <template>
   <div>
+
+        <div class="loading " v-if="isLoading" >
+      <bounce-loader :loading="isLoading" :color="'#FF0000'" :size="200"  />
+      <p>loading ...</p>
+    </div>
+
+    <div class="cursosd" v-else>
+
+   <Header :dato="variant"/>
     <h1>Cursos Disponibles</h1>
 
     <br>
@@ -16,35 +25,44 @@
          v-for="asset in assets"
                   :key="asset.id"
       >
-        <b-card-text>
-      aa
+        <b-card-text v-html="asset.attributes.description">
+      {{asset.attributes.description}}
         </b-card-text>
 
-        <b-button href="#" variant="primary">Ver detalles</b-button>
+        <b-button href="#" variant="primary"
+        :to="{
+              name: 'detail-course',
+              params: { id: asset.attributes.slug },
+            }"
+        >Ver detalles</b-button>
       </b-card>
     </div>
 
-    <router-link
-      to="/"
-     
-    >Volver </router-link>
+  <b-button variant="danger" class="mt-4" href="/">Volver</b-button>
+    
+ <Footer></Footer>
+ </div>
 
   </div>
 </template>
 
 <script>
 import api from "@/api";
+import Header from '../components/Header.vue';
+import Footer from '../components/Footer';
 
 export default {
   Name: "Cursos",
   
   components: {
+    Header,
+    Footer
     
   },
   data() {
     return {
       assets: [],
-      variable: "seba",
+      variant: "Estas en cursos disponibles",
       isLoading: true,
      img:'',
      nombre:'',
@@ -100,4 +118,9 @@ export default {
 </script>
 
 <style scoped>
+.loading {
+  margin-top: 250px;
+  margin-left: 45%;
+  margin-right: 50%;
+}
 </style>

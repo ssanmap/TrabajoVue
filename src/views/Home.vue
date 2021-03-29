@@ -12,7 +12,7 @@
       <!-- fin nav -->
 
       <div class="text-center">
-        <img v-bind:src="avatar" width="200" class="border bg-black rounded mb-3 mt-2" />
+        <img v-bind:src="avatar" width="200" class="xx border bg-black rounded mb-3 mt-2" />
         <div class=" bg-light  text-dark  justify-content-center " id="content">
                   <h1 >Información de Usuario </h1>
                    <b-skeleton-icon
@@ -213,4 +213,20 @@ ul{
 h1, h2 , h3, li {
  font-family: 'Quantico', sans-serif;
 }
+
+.xx:hover{
+transform: scale(1.2, 1.2);
+	z-index: 9;
+}
+
+
+@keyframes rotation {
+0%, 100% {
+transform: rotate(10deg);
+}
+50% {
+transform: rotate(-10deg);
+}
+}
+
 </style>

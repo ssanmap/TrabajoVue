@@ -3,7 +3,7 @@
 
         <div class="loading " v-if="isLoading" >
       <bounce-loader :loading="isLoading" :color="'#FF0000'" :size="200"  />
-      <p>loading ...</p>
+     
     </div>
 
     <div class="cursosd" v-else>
